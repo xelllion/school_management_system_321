@@ -1,5 +1,7 @@
-package com.example.school_management_system;
+package com.example.school_management_system.Service;
 
+import com.example.school_management_system.Entity.User;
+import com.example.school_management_system.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

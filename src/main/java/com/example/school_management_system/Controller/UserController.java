@@ -1,5 +1,7 @@
-package com.example.school_management_system;
+package com.example.school_management_system.Controller;
 
+import com.example.school_management_system.Entity.User;
+import com.example.school_management_system.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

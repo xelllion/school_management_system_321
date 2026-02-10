@@ -1,5 +1,6 @@
-package com.example.school_management_system;
+package com.example.school_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Task> tasks = new ArrayList<>();
 
     public User() {

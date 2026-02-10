@@ -1,5 +1,6 @@
-package com.example.school_management_system;
+package com.example.school_management_system.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,19 +13,22 @@ public class Task {
     private String title;
     private String description;
     private String status;
+    private boolean completed;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonManagedReference
     private User user;
 
     public Task() {
     }
 
-    public Task(Long id, String title, String description, String status, User User) {
+    public Task(Long id, String title, String description, String status, boolean completed, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
+        this.completed = completed;
         this.user = user;
     }
 
@@ -68,4 +72,11 @@ public class Task {
         this.user = user;
     }
 
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
 }
