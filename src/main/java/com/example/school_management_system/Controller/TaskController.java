@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -17,8 +18,9 @@ public class TaskController {
     private TaskService taskService;
 
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("tasks", taskService.getAllTasks());
+    public String index(Model model, Principal principal) {
+        String username = principal.getName();
+        model.addAttribute("tasks", taskService.getTasksByUser_Username(username));
         return "task-list";
     }
 

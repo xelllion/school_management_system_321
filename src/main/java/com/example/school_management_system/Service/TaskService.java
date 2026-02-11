@@ -29,4 +29,8 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
+    public List<Task> getTasksByUser_Username(String username) {
+        return taskRepository.findTasksByUser_Username(username);
+    }
+
 }
